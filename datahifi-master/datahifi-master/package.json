@@ -1,0 +1,33 @@
+{
+  "name": "webdatabasehifi",
+  "version": "2.0.0",
+  "description": "Web Database HIFI Unpad",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
+  },
+  "author": "Muhammad Lahia Ardhan",
+  "dependencies": {
+    "admin-lte": "^3.2.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^4.4.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.2",
+    "mongoose": "^6.2.10",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "tailwindcss": "^2.2.4"
+  }
+}

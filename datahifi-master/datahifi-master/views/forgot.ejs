@@ -1,0 +1,53 @@
+<%- include ./partials/header.ejs %> 
+
+<div id="forgot-background" class="flex items-center justify-center h-screen bg-cover bg-no-repeat bg-center text-indigo-900">
+   <div class="w-full flex flex-wrap">
+
+      <!-- Image Section -->
+      <div class="w-1/2">
+         <div class="hidden md:flex items-center justify-center">
+            <img class="w-2/3" src="/img/forgot.png" alt="forgot-image">
+         </div>
+      </div>
+
+      <!-- Form Section -->
+      <div class="relative w-full md:w-1/2 flex flex-col">
+         <div class="flex items-center justify-center md:justify-start">
+            <div class="w-3/4 md:w-2/3">
+               <div class="flex flex-col">
+                  <p class="text-3xl xl:text-5xl mb-3">Forgot <br>Your Password?</p>
+                  <%- include ./partials/message.ejs %>
+                  <form class="flex flex-col mt-3" action="/forgot" method="post">
+                     <div class="flex flex-col">
+                        <label for="username" class="text-lg">Username</label>
+                        <input type="text" id="username" placeholder="Username"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                           name="username">
+                     </div>
+                     
+                     <div class="flex flex-col pt-4">
+                        <label for="email" class="text-lg">Email</label>
+                        <input type="text" id="email" placeholder="youremail@mail.com"
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline"
+                           name="email">
+                     </div>
+            
+                     <div class="flex flex-col pt-4">
+                        <label for="password" class="text-lg">New Password</label>
+                        <input type="password" id="password" placeholder="Enter New Password" 
+                           class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" 
+                           name="password">
+                     </div>
+            
+                     <button type="submit" class="bg-indigo-500 text-white font-bold text-lg  p-2 mt-8 rounded-lg hover:bg-indigo-900 transition duration-500">Change Password</button>
+                 </form>
+               </div>
+               <p class="text-sm text-gray-400 mt-5"><i class="fa-regular fa-circle-question"></i> Hubungi ADMD jika mengalami kendala.</p>
+            </div>
+         </div>
+      </div>
+
+   </div>
+</div>
+
+<%- include ./partials/footer.ejs %>

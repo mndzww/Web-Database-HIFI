@@ -1,0 +1,64 @@
+ <table id="example2" class="table table-bordered table-striped" style="min-width: 4500px;">
+  <thead>
+  <tr>
+    <th>No</th>
+    <th></th>
+    <th style="min-width: 180px;">Updated at</th>
+    <th style="min-width: 180px;">NPM / Nama Lengkap</th>
+    <th style="min-width: 110px;">Username</th>
+    <th style="min-width: 180px;">Tempat, Tanggal Lahir</th>
+    <th style="min-width: 90px; ">Agama</th>
+    <th style="min-width: 90px; ">Gol. Darah</th>
+    <th style="min-width: 150px;">No. Handphone</th>
+    <th style="min-width: 180px;">Email</th>
+    <th style="min-width: 280px;">Alamat Rumah</th>
+    <th style="min-width: 280px;">Alamat Kos</th>
+    <th style="min-width: 556px;">Riwayat Pendidikan</th>
+    <th style="min-width: 556px;">Kepanitiaan</th>
+    <th style="min-width: 556px;">Keorganisasian</th>
+    <th style="min-width: 556px;">Pelatihan</th>
+    <th style="min-width: 556px;">Prestasi</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% for(let i = 0; i< users.length; i++) { %>
+        <tr>
+          <td style="text-align: center;"><%= i+1 %></td>
+          <td>
+            <form action="/dashboard/delete/<%= users[i]._id %>?_method=DELETE" method="POST">
+              <a href="/dashboard/edit/<%= users[i]._id %>" class="btn btn-info btn-sm">
+                <i class="fas fa-pencil-alt"></i>
+              </a>
+              <br>
+              <button class="btn btn-danger btn-sm">
+                <i class="fas fa-trash"></i>
+              </button>
+            </form>
+          </td>
+          <td style="min-width: 180px;"><%=users[i].time%></td>
+          <td style="min-width: 180px;">
+            <%=users[i].npm %> /
+            <br>
+            <%=users[i].nama%> 
+          </td>
+          <td style="min-width: 105px; text-align: center;"><%= users[i].username %></td>
+          <td style="min-width: 180px;">
+            <%= users[i].ttl %>,
+            <br>
+            <%= users[i].tgl %>
+          </td>
+          <td style="min-width: 80px;"><%= users[i].agama %></td>
+          <td style="min-width: 80px; text-align: center;"><%= users[i].goldar %></td>
+          <td style="min-width: 100px;"><%= users[i].hp %></td>
+          <td style="min-width: 180px;"><%= users[i].email %></td>
+          <td style="min-width: 270px;"><%= users[i].rumah %></td>
+          <td style="min-width: 270px;"><%= users[i].kos %></td>
+          <td style="min-width: 556px;"><%= users[i].pendidikan %></td>
+          <td style="min-width: 556px;"><%= users[i].panitia %></td>
+          <td style="min-width: 556px;"><%= users[i].organisasi %></td>
+          <td style="min-width: 556px;"><%= users[i].pelatihan %></td>
+          <td style="min-width: 556px;"><%= users[i].prestasi %></td>
+        </tr>
+    <% } %>
+  </tbody>
+</table>

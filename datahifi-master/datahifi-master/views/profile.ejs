@@ -1,0 +1,174 @@
+<%- include('partials/header') %>
+
+  <div
+    class="relative min-h-screen flex items-center justify-center bg-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center"
+    style="background-image: url(https://source.unsplash.com/IXUM4cJynP0);">
+    <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+    <div class="w-full space-y-8 p-10 bg-white rounded-xl shadow-lg z-10">
+      <div class="grid  gap-8 grid-cols-1">
+        <div class="flex flex-col ">
+          <div class="flex flex-col sm:flex-row items-center">
+            <h2 class="font-semibold text-lg mr-auto">Perbarui Profil</h2>
+            <div class="w-full sm:w-auto sm:ml-auto mt-3 sm:mt-0"></div>
+          </div>
+          <form action="/profile" method="post">
+            <div class="mt-5">
+              <div class="form">
+                <div class="md:flex flex-row md:space-x-4 w-full text-xs">
+                  <div class="mb-3 space-y-2 w-full text-xs">
+                    <label class="font-semibold text-gray-600 py-2">Ganti Username</label>
+                    <input placeholder="Username"
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="text" name="username" id="integration_shop_name" value="<%= user.username %>">
+                    <p class="text-red-500 text-xs underline"><%= message %></p>
+                  </div>
+                  <div class="mb-3 space-y-2 w-full text-xs">
+                    <label class="font-semibold text-gray-600 py-2">Nama Lengkap</label>
+                    <input placeholder="Nama Lengkap"
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="text" name="nama" id="integration_shop_name" value="<%= user.nama %>">
+                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                  </div>
+                  <div class="mb-3 space-y-2 w-full text-xs">
+                    <label class="font-semibold text-gray-600 py-2">NPM</label>
+                    <input placeholder="NPM"
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="number" name="npm" id="integration_shop_name" value="<%= user.npm %>">
+                    <p class="text-red text-xs hidden">Please fill out this field.</p>
+                  </div>
+                </div>
+                <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                  <div class="w-full flex flex-col mb-3">
+                    <label class="font-semibold text-gray-600 py-2">Tempat Lahir</label>
+                    <input placeholder="Tempat Lahir"
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="text" name="ttl" id="integration_street_address" value="<%= user.ttl %>">
+                  </div>
+                  <div class="w-full flex flex-col mb-3">
+                    <label class="font-semibold text-gray-600 py-2">Tanggal Lahir</label>
+                    <input placeholder="Tanggal Lahir"
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="date" name="tgl" id="integration_street_address" value="<%= user.tgl %>">
+                    <p class="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
+                  </div>
+                </div>
+                <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                  <div class="w-full flex flex-col mb-3">
+                    <label class="font-semibold text-gray-600 py-2">Agama</label>
+                    <select name="agama" id="">
+                      <option value="">Pilih salah satu</option>
+                      <option value="Islam" <% if (user.agama==="Islam" ){ %> selected <% }else { %>
+                          <% } %> >Islam</option>
+                      <option value="Kristen" <% if (user.agama==="Kristen" ){ %> selected <% }else { %>
+                          <% } %> >Kristen</option>
+                      <option value="Katolik" <% if (user.agama==="Katolik" ){ %> selected <% }else { %>
+                          <% } %> >Katolik</option>
+                      <option value="Budha" <% if (user.agama==="Budha" ){ %> selected <% }else { %>
+                          <% } %> >Budha</option>
+                      <option value="Hindu" <% if (user.agama==="Hindu" ){ %> selected <% }else { %>
+                          <% } %> >Hindu</option>
+                      <option value="Konghucu" <% if (user.agama==="Konghucu" ){ %> selected <% }else { %>
+                          <% } %> >Konghucu</option>
+                    </select>
+                  </div>
+                  <div class="w-full flex flex-col mb-3">
+                    <label class="font-semibold text-gray-600 py-2">Golongan Darah</label>
+                    <select name="goldar" id="">
+                      <option value="">Pilih Golongan Darah</option>
+                      <option value="A" <% if (user.goldar==="A" ){ %> selected <% }else { %>
+                          <% } %> >A</option>
+                      <option value="B" <% if (user.goldar==="B" ){ %> selected <% }else { %>
+                          <% } %> >B</option>
+                      <option value="O" <% if (user.goldar==="O" ){ %> selected <% }else { %>
+                          <% } %> >O</option>
+                      <option value="AB" <% if (user.goldar==="AB" ){ %> selected <% }else { %>
+                          <% } %> >AB</option>
+                    </select>
+                    <p class="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
+                  </div>
+                </div>
+                <div class="md:flex md:flex-row md:space-x-4 w-full text-xs">
+                  <div class="w-full flex flex-col mb-3">
+                    <label class="font-semibold text-gray-600 py-2">Nomor Handphone</label>
+                    <input placeholder="+62..."
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="text" name="hp" id="integration_street_address" value="<%= user.hp %>">
+                  </div>
+                  <div class="w-full flex flex-col mb-3">
+                    <label class="font-semibold text-gray-600 py-2">Email</label>
+                    <input placeholder="youremail@mail.com"
+                      class="appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg h-10 px-4"
+                      type="text" name="email" id="integration_street_address" value="<%= user.email %>">
+                    <p class="text-sm text-red-500 hidden mt-3" id="error">Please fill out this field.</p>
+                  </div>
+                </div>
+                <div class="mb-3 space-y-2 w-full text-xs">
+                  <label class=" font-semibold text-gray-600 py-2">Alamat Rumah</label>
+                  <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                    <input type="text"
+                      class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow"
+                      placeholder="Alamat Rumah" name="rumah" value="<%= user.rumah %>">
+                  </div>
+                </div>
+                <div class="mb-3 space-y-2 w-full text-xs">
+                  <label class=" font-semibold text-gray-600 py-2">Alamat Kos</label>
+                  <div class="flex flex-wrap items-stretch w-full mb-4 relative">
+                    <input type="text"
+                      class="flex-shrink flex-grow flex-auto leading-normal w-px flex-1 border border-l-0 h-10 border-grey-light rounded-lg rounded-l-none px-3 relative focus:border-blue focus:shadow"
+                      placeholder="Alamat Kos" name="kos" value="<%= user.kos %>">
+                  </div>
+                </div>
+                <div class="flex-auto w-full mb-1 text-xs space-y-2">
+                  <label class="font-semibold text-gray-600 py-2">Riwayat Pendidikan</label>
+                  <textarea name="pendidikan" id=""
+                    class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
+                    placeholder="[Jenjang sekolah] - [Nama sekolah] - [Tahun masuk] - [Tahun lulus] // e.g. SD - SDN 01 Bandung - 2005 - 2011" spellcheck="false"><%= user.pendidikan %></textarea>
+                </div>
+                <div class="flex-auto w-full mb-1 text-xs space-y-2">
+                  <label class="font-semibold text-gray-600 py-2">Daftar Kepanitiaan Terbaru (September 2020 - Sekarang)</label>
+                  <textarea name="panitia" id=""
+                    class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
+                    placeholder="[Tahun diselenggarakan] - [Nama kepanitiaan] - [Jabatan] // e.g. 2020 - Dies Natalis HIFI 2020 - Staf Divisi Acara" spellcheck="false"><%= user.panitia %></textarea>
+                </div>
+                <div class="flex-auto w-full mb-1 text-xs space-y-2">
+                  <label class="font-semibold text-gray-600 py-2">Daftar Keorganisasian Terbaru (September 2020 - Sekarang)</label>
+                  <textarea name="organisasi" id=""
+                    class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
+                    placeholder="[Tahun menjabat] - [Nama organisasi] - [Jabatan] // e.g. 2021 - HIFI - Staf departemen kaderisasi" spellcheck="false"><%= user.organisasi %></textarea>
+                </div>
+                <div class="flex-auto w-full mb-1 text-xs space-y-2">
+                  <label class="font-semibold text-gray-600 py-2">Daftar Pelatihan Terbaru (Septermber 2020 - Sekarang)</label>
+                  <textarea name="pelatihan" id=""
+                    class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
+                    placeholder="[Tahun diselenggarakan] - [Nama pelatihan] - [tingkat] // e.g. 2020 - LKMM - Universitas (jurusan)" spellcheck="false"><%= user.pelatihan %></textarea>
+                </div>
+                <div class="flex-auto w-full mb-1 text-xs space-y-2">
+                  <label class="font-semibold text-gray-600 py-2">Daftar Prestasi Terbaru (September 2020 - Sekarang)</label>
+                  <textarea name="prestasi" id=""
+                    class="w-full min-h-[100px] max-h-[300px] h-28 appearance-none block w-full bg-grey-lighter text-grey-darker border border-grey-lighter rounded-lg  py-4 px-4"
+                    placeholder="[Tahun diselenggarakan] - [Predikat] - [Nama kegiatan] - [Tingkat] // e.g. 2020 - Juara 1 - Putri MIPA - Universitas (fakultas)" spellcheck="false"><%= user.prestasi %></textarea>
+                </div>
+                <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+                    <button
+                      class="mb-2 md:mb-0 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-green-600 rounded-full hover:shadow-lg hover:bg-gray-100 duration-300"
+                      type="button"
+                    >
+                      <a href="/">
+                        Cancel
+                      </a>
+                    </button>
+                  <button
+                    class="mb-2 md:mb-0 bg-green-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-white rounded-full hover:shadow-lg hover:bg-green-500 duration-300"
+                    type="submit"
+                    >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include('partials/footer') %>

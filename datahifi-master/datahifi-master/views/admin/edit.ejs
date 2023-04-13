@@ -1,0 +1,198 @@
+<%- include ./partials/header.ejs %>
+<%- include ./partials/navbar.ejs %>
+<%- include ./partials/sidebar.ejs %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+   <!-- Content Header (Page header) -->
+   <div class="content-header">
+     <div class="container-fluid">
+       <div class="row mb-2">
+         <div class="col-sm-6">
+           <h1 class="m-0">User Detail</h1>
+           <h5><%= user.npm %> - <%= user.nama %></h5>
+         </div>
+       </div><!-- /.row -->
+     </div><!-- /.container-fluid -->
+   </div>
+
+   <!-- Content Wrapper. Contains page content -->
+   <section class="content">
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-12">
+               <!-- Main Content -->
+               <div class="card card-gray-dark">
+                  <div class="card-header">
+                     <h3 class="card-title">Edit User</h3>
+                  </div> <!-- /.card-header -->
+                  
+                  <!-- form start -->
+                  <form action="/dashboard/edit/<%= user._id %>?_method=PUT" method="POST">
+                     <div class="card-body">
+                        <div class="row">
+                           <div class="form-group col-md-4">
+                              <label>Ganti Username</label>
+                              <input placeholder="Username" 
+                                 name="username" value="<%= user.username %>"
+                                 type="text" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                           <div class="form-group col-md-4">
+                              <label>Nama Lengkap</label>
+                              <input placeholder="Nama Lengkap" 
+                                 name="nama" value="<%= user.nama %>"
+                                 type="text" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                           <div class="form-group col-md-4">
+                              <label>NPM</label>
+                              <input placeholder="NPM" 
+                                 name="npm" value="<%= user.npm %>"
+                                 type="number" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label>Tempat Lahir</label>
+                              <input placeholder="Tempat Lahir" 
+                                 name="ttl" value="<%= user.ttl %>"
+                                 type="text" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                           <div class="form-group col-sm-6">
+                              <label>Tanggal Lahir</label>
+                              <input placeholder="Tempat Lahir" 
+                                 name="tgl" value="<%= user.tgl %>"
+                                 type="date" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label>Agama</label>
+                              <select name="agama" class="form-control form-control-sm">
+                                 <option value="">Pilih salah satu</option>
+                                 <option value="Islam" <% if (user.agama==="Islam" ){ %> selected <% }else { %>
+                                    <% } %> >Islam</option>
+                                 <option value="Kristen" <% if (user.agama==="Kristen" ){ %> selected <% }else { %>
+                                    <% } %> >Kristen</option>
+                                 <option value="Katolik" <% if (user.agama==="Katolik" ){ %> selected <% }else { %>
+                                    <% } %> >Katolik</option>
+                                 <option value="Budha" <% if (user.agama==="Budha" ){ %> selected <% }else { %>
+                                    <% } %> >Budha</option>
+                                 <option value="Hindu" <% if (user.agama==="Hindu" ){ %> selected <% }else { %>
+                                    <% } %> >Hindu</option>
+                                 <option value="Konghucu" <% if (user.agama==="Konghucu" ){ %> selected <% }else { %>
+                                    <% } %> >Konghucu</option>
+                              </select>
+                           </div>
+                           <div class="form-group col-sm-6">
+                              <label>Golongan Darah</label>
+                              <select name="goldar" class="form-control form-control-sm">
+                                 <option value="">Pilih Golongan Darah</option>
+                                 <option value="A" <% if (user.goldar==="A" ){ %> selected <% }else { %>
+                                    <% } %> >A</option>
+                                 <option value="B" <% if (user.goldar==="B" ){ %> selected <% }else { %>
+                                    <% } %> >B</option>
+                                 <option value="O" <% if (user.goldar==="O" ){ %> selected <% }else { %>
+                                    <% } %> >O</option>
+                                 <option value="AB" <% if (user.goldar==="AB" ){ %> selected <% }else { %>
+                                    <% } %> >AB</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label>Nomor Handphone</label>
+                              <input placeholder="Nomor Handphone" 
+                                 name="hp" value="<%= user.hp %>"
+                                 type="text" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                           <div class="form-group col-sm-6">
+                              <label>Email</label>
+                              <input placeholder="youremail@mail.com" 
+                                 name="email" value="<%= user.email %>"
+                                 type="email" class="form-control form-control-sm" id="" 
+                              >
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label>Alamat Rumah</label>
+                              <textarea placeholder="Alamat Rumah" name="rumah"
+                                 class="form-control" rows="3"
+                              ><%= user.rumah %></textarea>
+                           </div>
+                           <div class="form-group col-sm-6">
+                              <label>Alamat Kos</label>
+                              <textarea placeholder="Alamat Kos" name="kos" 
+                                 class="form-control" rows="3"
+                              ><%= user.kos %></textarea>
+                           </div>
+                        </div>
+                        <div class="row">
+                           <div class="form-group col-sm-6">
+                              <label>Riwayat Pendidikan</label>
+                              <textarea 
+                                 placeholder="[Jenjang] - [Nama Sekolah] - [Tahun Masuk] - [Tahun Lulus]" 
+                                 name="pendidikan"
+                                 class="form-control" 
+                                 rows="6"
+                              ><%= user.pendidikan %></textarea>
+                           </div>
+                           <div class="form-group col-sm-6">
+                              <label>Daftar Kepanitiaan Terbaru</label>
+                              <textarea 
+                                 placeholder="[Tahun] - [Nama Kepanitiaan] - [Jabatan]" 
+                                 name="panitia" 
+                                 class="form-control" 
+                                 rows="6"
+                              ><%= user.panitia %></textarea>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label>Daftar Keorganisasian Terbaru</label>
+                           <textarea 
+                              placeholder="[Tahun] - [Nama Organisai] - [Jabatan]" 
+                              name="organisasi" 
+                              class="form-control" 
+                              rows="6"
+                           ><%= user.organisasi %></textarea>
+                        </div>
+                        <div class="form-group">
+                           <label>Daftar Pelatihan Terbaru</label>
+                           <textarea 
+                              placeholder="[Tahun] - [Nama Pelatihan] - [Tingkat]" 
+                              name="pelatihan" 
+                              class="form-control" 
+                              rows="6"
+                           ><%= user.pelatihan %></textarea>
+                        </div>
+                        <div class="form-group">
+                           <label>Daftar Prestasi Terbaru</label>
+                           <textarea 
+                              placeholder="[Tahun] - [Predikat] - [Nama Kegiatan] - [Tingkat]" 
+                              name="prestasi" 
+                              class="form-control" 
+                              rows="6"
+                           ><%= user.prestasi %></textarea>
+                        </div>
+                     </div> <!-- /.card-body -->
+                  
+                     <div class="card-footer">
+                        <button type="submit" class="btn btn-success float-right px-5">Save</button>
+                        <a href="/dashboard" class="btn btn-default float-right px-5 mx-2">Cancel</a>
+                     </div>
+                  </form>
+               </div> <!-- /.Main Content -->
+            </div> <!-- /.col -->
+          </div> <!-- /.row -->
+        </div> <!-- /.container-fluid -->
+      </section> <!-- /.content wrapper -->
+</div>
+
+<%- include ./partials/footer.ejs %>
+<%- include ./partials/script.ejs %>
